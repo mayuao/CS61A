@@ -2,7 +2,7 @@
 (Spring 2021)
 
 - [x] lab01
-- [ ] lab02
+- [x] lab02
 - [ ] lab03
 - [ ] lab05
 - [ ] lab06

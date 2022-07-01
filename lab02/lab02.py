@@ -1,4 +1,3 @@
-
 def lambda_curry2(func):
     """
     Returns a Curried version of a two-argument function FUNC.
@@ -15,7 +14,15 @@ def lambda_curry2(func):
     3
     """
     "*** YOUR CODE HERE ***"
-    return ______
+
+    def Cur(a):
+
+        def Curr(b):
+            return func(a, b)
+
+        return Curr
+
+    return Cur
 
 
 def count_cond(condition):
@@ -46,6 +53,15 @@ def count_cond(condition):
     8
     """
     "*** YOUR CODE HERE ***"
+
+    def Count(n):
+        ans = 0
+        for i in range(1, n + 1):
+            if condition(n, i) is True:
+                ans += 1
+        return ans
+
+    return Count
 
 
 def compose1(f, g):
@@ -82,6 +98,11 @@ def composite_identity(f, g):
     """
     "*** YOUR CODE HERE ***"
 
+    def Equal(n):
+        return f(g(n)) == g(f(n))
+
+    return Equal
+
 
 def cycle(f1, f2, f3):
     """Returns a function that is itself a higher-order function.
@@ -110,3 +131,21 @@ def cycle(f1, f2, f3):
     19
     """
     "*** YOUR CODE HERE ***"
+
+    def calctimes(n):
+
+        def calc(x):
+            if n == 0:
+                return x
+            for i in range(1, n + 1):
+                if i % 3 == 1:
+                    x = f1(x)
+                elif i % 3 == 2:
+                    x = f2(x)
+                else:
+                    x = f3(x)
+            return x
+
+        return calc
+
+    return calctimes
