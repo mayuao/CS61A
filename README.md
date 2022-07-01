@@ -1,7 +1,7 @@
 # CS61A
 (Spring 2021)
 
-- [ ] lab01
+- [x] lab01
 - [ ] lab02
 - [ ] lab03
 - [ ] lab05
