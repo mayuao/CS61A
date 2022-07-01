@@ -1,3 +1,5 @@
+from pyparsing import col
+
 HW_SOURCE_FILE = __file__
 
 
@@ -20,6 +22,10 @@ def summation(n, term):
     """
     assert n >= 1
     "*** YOUR CODE HERE ***"
+    if n == 1:
+        return term(1)
+    else:
+        return summation(n - 1, term) + term(n)
 
 
 def pascal(row, column):
@@ -35,12 +41,20 @@ def pascal(row, column):
     6
     """
     "*** YOUR CODE HERE ***"
+    if row < column:
+        return 0
+    if column == 0 or column == row:
+        return 1
+    else:
+        return pascal(row - 1, column) + pascal(row - 1, column - 1)
 
 
 def compose1(f, g):
     """"Return a function h, such that h(x) = f(g(x))."""
+
     def h(x):
         return f(g(x))
+
     return h
 
 
@@ -66,3 +80,9 @@ def repeated(f, n):
     True
     """
     "*** YOUR CODE HERE ***"
+    if n == 1:
+        return f
+    elif n == 0:
+        return lambda x: x
+    else:
+        return compose1(f, repeated(f, n - 1))
